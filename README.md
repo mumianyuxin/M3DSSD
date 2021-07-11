@@ -49,7 +49,8 @@
   - Tips: It is recommended to load a pre-trained model when training with feature alignment.
 
 - Testing
-  modify the `conf_path` and `weights_path` to run test. 
+  
+  Modify the `conf_path` and `weights_path` to run test. 
   ```
   python scripts/test_rpn_3d.py
   ```
