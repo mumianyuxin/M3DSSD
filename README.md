@@ -1,6 +1,6 @@
 # M3DSSD: Monocular 3D Single Stage Object Detector
 
-### Setup
+## Setup
 
 - pytorch 0.4.1
 
@@ -39,7 +39,7 @@
 
   
 
-- Training
+## Training
 
   Review the configurations in *scripts/config* for details.
 
@@ -47,8 +47,8 @@
   python scripts/train_rpn_3d.py --config=kitti_3d_base --exp_name base
   ```
   - Tips: It is recommended to load a pre-trained model when training with feature alignment.
-
-- Testing
+ 
+##  Testing
   
   Modify the `conf_path` and `weights_path` to run test. 
   ```
