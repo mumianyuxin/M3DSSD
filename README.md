@@ -53,3 +53,8 @@
   ```
   python scripts/test_rpn_3d.py
   ```
+  
+## Acknowledgements
+- Thanks [Garrick Brazil](https://github.com/garrickbrazil/M3D-RPN) for his great works.
+- Thanks [CharlesShang](https://github.com/CharlesShang/DCNv2) for his works.
+- Thanks [traveller59](https://github.com/traveller59/kitti-object-eval-python) for his works
