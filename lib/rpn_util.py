@@ -1441,9 +1441,9 @@ def im_detect_3d(im, net, rpn_conf, obj, gpu=0, synced=False):
 
     # compute feature resolution
     num_anchors = rpn_conf.anchors.shape[0]
-    anchors = torch.from_numpy(rpn_conf.anchors).cuda()
-    bbox_means = torch.from_numpy(rpn_conf.bbox_means).cuda()
-    bbox_stds = torch.from_numpy(rpn_conf.bbox_stds).cuda()
+    anchors = torch.from_numpy(rpn_conf.anchors).cuda().float()
+    bbox_means = torch.from_numpy(rpn_conf.bbox_means).cuda().float()
+    bbox_stds = torch.from_numpy(rpn_conf.bbox_stds).cuda().float()
 
     bbox_x = bbox_2d[:, :, 0]
     bbox_y = bbox_2d[:, :, 1]
@@ -1513,8 +1513,8 @@ def im_detect_3d(im, net, rpn_conf, obj, gpu=0, synced=False):
     #aboxes = np.hstack((coords_2d, scores[:, np.newaxis]))
     aboxes = torch.cat((coords_2d, scores[:, np.newaxis]), dim=1)
 
-    sorted_inds = (-aboxes[:, 4]).argsort()
-    original_inds = (sorted_inds).argsort()
+    sorted_inds = torch.argsort(-aboxes[:, 4])
+    original_inds = torch.argsort(sorted_inds)
     aboxes = aboxes[sorted_inds, :]
     coords_3d = coords_3d[sorted_inds, :]
     cls_pred = cls_pred[sorted_inds].float()
